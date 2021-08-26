@@ -12,9 +12,8 @@ export const baseFetchAsync = async (
       method,
       body,
     });
-
-    return response.json();
+    return { data: response.json(), status: response.status };
   } catch (e) {
-    return console.error(e);
+    return { status: 400 };
   }
 };
